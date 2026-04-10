@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group = 'ECommerceAutomation'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Cucumber BOM
+    implementation platform('io.cucumber:cucumber-bom:7.34.3')
+    implementation 'io.cucumber:cucumber-java'
+    implementation 'io.cucumber:cucumber-junit-platform-engine'
+    implementation 'io.cucumber:cucumber-picocontainer'
+
+    // JUnit 5
+    testImplementation 'org.junit.platform:junit-platform-suite:1.11.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.14.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Selenium 4
+    implementation 'org.seleniumhq.selenium:selenium-java:4.41.0'
+
+    // Reporting
+    implementation 'net.masterthought:cucumber-reporting:5.10.2'
+}
+
+test {
+    useJUnitPlatform() // CRITICAL: Enables discovery of @Suite and Cucumber tests
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}
