@@ -1,6 +1,6 @@
 # language: en
 
-Feature: eccomerce home
+Feature: ecommerce home
     Scenario Outline: Adding items to cart
         Given I am on the ecommerce home page
         When I add item <number1> to cart

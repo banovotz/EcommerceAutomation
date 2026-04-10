@@ -42,6 +42,17 @@ public class ECommerceHomePO {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
+    public String goToProduct(Integer productNumber) {
+        By productId = By.cssSelector("#productGrid > div:nth-child(" + productNumber + ") > div.title)");
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + productNumber +") > div:nth-child(5) > button.view")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        return productId.toString();
+    }
+
+    public final String readTheProductTitleOnHomePage(Integer productNumber) {
+      return wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + productNumber + ") > div.title"))).getAttribute("title");
+    }
+
     public String readTheCart() {
         String cartCountState = wait.until(ExpectedConditions.presenceOfElementLocated(cartCount)).getText();
         return cartCountState;
