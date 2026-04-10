@@ -21,20 +21,22 @@ public class ECommerceHomePO {
         this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
     }
 
-  public void addProductToCart(Integer position) {
-
-      WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + position + ") > div:nth-child(5) > button.add")));
-      ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-      
-  }
     public String pageTitle() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.not(ExpectedConditions.titleIs("")));
         return driver.getTitle();
     }
 
-  public String readTheCart() {
+    public void addProductToCart(Integer value) {
+        String valueStr = String.valueOf(value);
+        for (char position : valueStr.toCharArray()) {
+      WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + position + ") > div:nth-child(5) > button.add")));
+      ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+    }
+    }
+
+    public String readTheCart() {
         String cartCountState = wait.until(ExpectedConditions.presenceOfElementLocated(cartCount)).getText();
         return cartCountState;
-  }
+    }
 }

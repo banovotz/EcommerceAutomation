@@ -1,12 +1,13 @@
 # language: en
 
 Feature: eccomerce home
-    Scenario Outline: Adding one item to cart
+    Scenario Outline: Adding items to cart
         Given I am on the ecommerce home page
         When I add <number1> item to cart
-        Then one item is in the cart
+        Then <expected> item is in the cart
 
         Examples:
-            | number1 |
-            | 1       |
+            | number1 | expected |
+            | 1       | 1        |
+            | 2       | 1        |
 

@@ -17,8 +17,8 @@ public class EccomerceHomeSteps {
         ECommerceHomePO.addProductToCart(1);
     }
 
-    @Then("one item is in the cart")
-    public void one_item_is_in_the_cart() {
-        Assertions.assertEquals(ECommerceHomePO.readTheCart(), "1");
+    @Then("{int} item is in the cart")
+    public void item_is_in_the_cart(Integer int2) {
+        Assertions.assertEquals(ECommerceHomePO.readTheCart(), int2.toString());
     }
 }
