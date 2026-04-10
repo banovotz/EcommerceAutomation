@@ -1,5 +1,6 @@
 package pageobjects;
 
+import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +34,12 @@ public class ECommerceHomePO {
       WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + position + ") > div:nth-child(5) > button.add")));
       ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
+    }
+
+    public void goToPage(Integer pageNumber) {
+        Integer realPageNumber = pageNumber + 1;
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#pagination > button:nth-child(" + realPageNumber  + ")")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
     public String readTheCart() {
