@@ -1,6 +1,5 @@
 package pageobjects;
 
-import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import runtest.SetDriver;
-import static java.lang.Character.isDigit;
 
 public class ECommerceHomePO {
     private WebDriver driver;

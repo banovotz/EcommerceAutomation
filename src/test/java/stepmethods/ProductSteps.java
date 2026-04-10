@@ -2,14 +2,8 @@ package stepmethods;
 
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.ECommerceHomePO;
 import pageobjects.ProductPO;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ProductSteps {
     ECommerceHomePO ECommerceHomePO = new ECommerceHomePO();
