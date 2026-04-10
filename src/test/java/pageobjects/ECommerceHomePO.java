@@ -22,8 +22,10 @@ public class ECommerceHomePO {
     }
 
   public void addProductToCart(Integer position) {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#productGrid > div:nth-child(" + position + ") > div:nth-child(5) > button.add"))).click();
 
+      WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + position + ") > div:nth-child(5) > button.add")));
+      ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+      
   }
     public String pageTitle() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
