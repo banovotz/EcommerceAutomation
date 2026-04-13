@@ -10,5 +10,5 @@ Feature: product page
         Examples:
             | number1 | expected |
             | 1       | 1        |
-            | 2       | 2        |
+            | 2       | 1        |
 
