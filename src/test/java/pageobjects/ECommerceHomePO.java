@@ -51,8 +51,13 @@ public class ECommerceHomePO {
       return wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#productGrid > div:nth-child(" + productNumber + ") > div.title"))).getAttribute("title");
     }
 
+    public void goToCart() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#cartCount"))).click();
+    }
     public String readTheCart() {
         String cartCountState = wait.until(ExpectedConditions.presenceOfElementLocated(cartCount)).getText();
         return cartCountState;
     }
+
+
 }
