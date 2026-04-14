@@ -1,8 +1,6 @@
 package stepmethods;
 
-import io.cucumber.java.an.E;
 import io.cucumber.java.en.*;
-import io.cucumber.java.sl.In;
 import org.junit.jupiter.api.Assertions;
 import pageobjects.CartPO;
 import pageobjects.ECommerceHomePO;
