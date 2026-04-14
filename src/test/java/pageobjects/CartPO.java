@@ -33,6 +33,11 @@ public class CartPO {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#cartContainer > div:nth-child(" + int4 + ") > div:nth-child(5) > button"))).click();
     }
 
+    public String cartItemQuantity(Integer int1) {
+    String cartItemQ = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#cartContainer > div:nth-child(" + int1 + ") > div:nth-child(5) > label > input[type=number]"))).getAttribute("value");
+    return cartItemQ;
+    }
+
     public void cartCheckoutButton() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#checkoutBtn"))).click();
     }

@@ -21,3 +21,12 @@ Feature: cart
             | number1 |expected |
             | 1       |1        |
             | 2       |1        |
+    Scenario Outline: Adding more of the same product to the cart with plus control
+        Given I added product item <number1> to the cart
+        When I add <number2> more of that item to the cart
+        Then The cart contains <expected> of that product
+
+        Examples:
+            | number1 |number2|expected |
+            | 1       |1      |2        |
+            | 2       |1      |2        |
